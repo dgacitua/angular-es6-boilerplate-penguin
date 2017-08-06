@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="page-header">
+    <h1>Welcome to {{ main.appName }}!</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-xs-12">
+      <p>Use this template for your own Angular ES6 projects!</p>
+      <p>Based on the following technologies</p>
+      <ul>
+        <li>JavaScript with ECMAScript 6 standard</li>
+        <li>AngularJS 1.6.5</li>
+        <li>jQuery 3</li>
+        <li>Twitter Bootstrap 3</li>
+        <li>Font Awesome 4</li>
+        <li>UI-Router 1.0</li>
+        <li>UI-Bootstrap 2.5</li>
+      </ul>
+      <p><a ui-sref="about">About this template...</a></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-xs-12">
+      <h3>Get ping from server!</h3>
+      <div>
+        <button class="btn" ng-click="main.getPingMeteor()">Ping from Meteor Method</button>
+        <button class="btn" ng-click="main.getPingRest()">Ping from REST API</button>
+      </div>
+      <div class="top-padding">
+        <pre>{{ main.pingResult | json: 2 }}</pre>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <h3>Get a random number from server!</h3>
+      <div class="row">
+        <div class="col-md-6 col-xs-12 input-group">
+          <span class="input-group-addon" id="min">Min</span>
+          <input type="number" class="form-control" placeholder="0" aria-describedby="min" ng-model="main.min">
+        </div>
+        <div class="col-md-6 col-xs-12 input-group">
+          <span class="input-group-addon" id="max">Max</span>
+          <input type="number" class="form-control" placeholder="10" aria-describedby="max" ng-model="main.max">
+        </div>
+      </div>
+      <div class="top-padding">
+        <button class="btn" ng-click="main.getRandomNumberMeteor()">Number from Meteor Method</button>
+        <button class="btn" ng-click="main.getRandomNumberRest()">Number from REST API</button>
+      </div>
+      <div class="top-padding">
+        <pre>{{ main.randomResult | json: 2 }}</pre>
+      </div>
+    </div>
+  </div>
+</div>
