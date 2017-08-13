@@ -11,13 +11,13 @@ export default class MainCtrl extends Controller {
   }
 
   getDate() {
-    //this.PingService.pingFromMeteor()
-    //  .then((res) => { this.pingResult = res });
+    this.DateService.getDate()
+      .then((res) => { this.dateResult = res });
   }
 
   getRandomNumber() {
-    //this.RandomNumberService.numberFromMeteor(this.min, this.max)
-    // .then((res) => { this.randomResult = res });
+    this.RandomNumberService.getNumber(this.min, this.max)
+     .then((res) => { this.randomResult = res });
   }
 }
 

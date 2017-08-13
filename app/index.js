@@ -1,11 +1,13 @@
 import 'jquery';
+import 'angular-material/angular-material.css';
+import 'font-awesome/css/font-awesome.css';
 
 import angular from 'angular';
-import uiBootstrap from 'angular-ui-bootstrap';
+import angularMaterial from 'angular-material';
+import angularAnimate from 'angular-animate';
+import angularAria from 'angular-aria';
 import uiRouter from '@uirouter/angularjs';
 import Loader from 'angular-ecmascript/module-loader';
-import 'angular-animate';
-import 'angular-touch';
 
 import RoutesConfig from './modules/routes';
 
@@ -17,7 +19,9 @@ import AboutCtrl from './pages/about/about';
 const app = 'app';
 
 angular.module(app, [
-  uiBootstrap,
+  angularMaterial,
+  angularAnimate,
+  angularAria,
   uiRouter,
   ServicesModule.name
 ]);

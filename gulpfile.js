@@ -10,11 +10,6 @@ var browserSync = require('browser-sync').create();
 var packageJson = require('./package.json');
 var dependencies = Object.keys(packageJson && packageJson.dependencies || {});
 
-gulp.task('libs', function() {
-  return gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css', 'node_modules/font-awesome/css/font-awesome.min.css'])
-    .pipe(gulp.dest('./dist/libs'));
-});
-
 gulp.task('dev-js', function() {
   return browserify('./app/index.js', { debug: true })
     .transform(babelify, { presets: ['es2015'] })
@@ -77,7 +72,7 @@ gulp.task('refresh-templates', ['dev-templates'], function() {
   browserSync.reload
 });
 
-gulp.task('watch', ['libs', 'dev-js', 'dev-templates'], function() {
+gulp.task('watch', ['dev-js', 'dev-templates'], function() {
   var watcher1 = gulp.watch('./app/**/*.js', ['refresh-js']);
   var watcher2 = gulp.watch(['./app/**/*.html', './app/**/*.css'], ['refresh-templates']);
 
@@ -97,7 +92,7 @@ gulp.task('serve', ['watch'], function() {
 });
 
 gulp.task('build', function() {
-  runSequence('clean', 'libs', 'compile-js', 'compile-templates');
+  runSequence('clean', 'compile-js', 'compile-templates');
 });
 
 gulp.task('default', ['serve']);
